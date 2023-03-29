@@ -88,4 +88,13 @@ def change_temp_password(db: Session, id: int, password: str):
 	db.refresh(user)
 	return user
 
+def delete_user_by_id(db: Session, id: int) -> Any:
+	"""
+	Delete a user form the db.
+	"""
+	user_to_delete = get_user_by_id(db, id)
+	db.delete(user_to_delete)
+	db.commit()
+	return user_to_delete
+
 

@@ -127,11 +127,11 @@ def delete_user(*, db: Session = Depends(get_db), id: int, ):
     """
     Delete a specific user
     """
-    db_user = userService.get(db=db, id=id)
+    db_user = userService.get_user_by_id(db=db, id=id)
     if not db_user:
         raise not_found_by_id_exception(id)
 
-    userService.delete(db=db, id=id)
+    userService.delete_user_by_id(db=db, id=id)
 
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
