@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:14
+    env_file: ./.env
+    environment:
+      - POSTGRES_HOST=${DB_HOSTNAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_TRANSPORT_FILE_SERVICE_POSTGRES}
+    ports:
+      - 3455:3455
+    command: -p 3455
+
+  transport_file_service:
+    image: transport_file_service
+    container_name: transport_file_service
+    depends_on:
+      - postgres
+    build: ./
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@postgres:3455/${DB_TRANSPORT_FILE_SERVICE_POSTGRES}

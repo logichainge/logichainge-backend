@@ -1,0 +1,133 @@
+{
+	"json_data": {
+	  "display_number": "robot_test_1",
+	  "tr_file_status": null,
+	  "invoice_reference": "",
+	  "file_type": "",
+	  "equipment_type": "",
+	  "modality": "",
+	  "service_level": "",
+	  "customs": "",
+	  "attention_required": true,
+	  "multi_trip": true,
+	  "multi_activity": true,
+	  "date_deviation": true,
+	  "urgency": true,
+	  "late_booking": true,
+	  "cost_code": "",
+	  "client": {
+		"client_identifier": "123",
+		"name": [
+		  "GEBA TRANSPORT & LOGISTIEK BV",
+		  "OSTERLENMEJERIET AB PIA APPELKVIST",
+		  "P. DE VRIJ MOERKAPELLE B.V."
+		]
+	  },
+	  "contact": {
+		"initials": "",
+		"name": "",
+		"surname": "",
+		"surname_prefix": "",
+		"phone": ["+31-010-4118913", "*31-010-4113440"],
+		"mobile": ["+31-010-4118913", "*31-010-4113440"],
+		"email": ["LOGISTICS-COCONUT@CATZ.NL"]
+	  },
+	  "department": {
+		"name": ""
+	  },
+	  "employee": {
+		"name": ""
+	  },
+	  "activities": [
+		{
+		  "sequence_id": 0,
+		  "activity_type": "Loading",
+		  "address": {
+			"name": "P. DE VRIJ MOERKAPELLE B.V.",
+			"street_1": "DE VRIJ MOERKAPELLE NOORDKADE 64",
+			"street_2": "",
+			"street_3": "",
+			"zipcode": "2741 EZ",
+			"city": "WADDINXVEEN",
+			"country": "NEDERLAND",
+			"latitude": 0,
+			"longitude": 0
+		  },
+		  "date": ["02-02-2023", "31-01-2023"],
+		  "time_prefix": "",
+		  "time_1": ["07.00", "09:00", "14:45", "16.00"],
+		  "time_2": ["16.00", "14:45", "09:00", "07.00"],
+		  "activity_reference": ["L5004201", "V-ORD45016"],
+		  "instructions": " LADEN 31-01-2023 LEVEREN 02-02-2023 V-ORD45016 ALLEEN SCHONE, DROGE EN REUKLOZE WAGENS GEBRUIKEN WELKE  GESCHIKT ZIJN VOOR HET TRANSPORT VAN CONSUMPTIEGOEDEREN. BIJ IGROUPAGEIVERLADINGEN MOGEN GEEN GOEDEREN BIJGELADEN ZIJN/WORDEN WELKE NADELIGE GEVOLGEN KUNNEN HEBBEN OP ONZE LADING. BIJ TWIJFEL SVP  DIRECT CONTACT MET ONS OPNEMEN. LET OP, GELIEVE ONS PRODUCT KOKOS (COCONUT) NIET SAMEN LADEN MET ANDERE PRODUCTEN I.V.M. GEUROVERDRACHTI AANLEVERTIJD: MA T/M VR: 09:00U 14:45U LOSREFERENTIE: ORDER L5004201",
+		  "contact": {
+			"initials": "",
+			"name": "",
+			"surname": "",
+			"surname_prefix": "",
+			"phone": [],
+			"mobile": [],
+			"email": []
+		  }
+		},
+		{
+		  "sequence_id": 1,
+		  "activity_type": "Delivering",
+		  "address": {
+			"name": "OSTERLENMEJERIET AB PIA APPELKVIST",
+			"street_1": "BRANTEKVIKSVAGEN 1",
+			"street_2": "",
+			"street_3": "",
+			"zipcode": "27224",
+			"city": "SIMRISHAMN",
+			"country": "SWEDEN",
+			"latitude": 0,
+			"longitude": 0
+		  },
+		  "date": ["02-02-2023", "31-01-2023"],
+		  "time_prefix": "",
+		  "time_1": ["07.00", "09:00U", "14:45U", "16.00UUR"],
+		  "time_2": ["16.00UUR", "14:45U", "09:00U", "07.00"],
+		  "activity_reference": [
+			"L5004201",
+			"V-ORD45016",
+			"V-ORD45016",
+			"NL001841890B01"
+		  ],
+		  "instructions": " LADEN 31-01-2023 LEVEREN 02-02-2023 V-ORD45016 ALLEEN SCHONE, DROGE EN REUKLOZE WAGENS GEBRUIKEN WELKE GESCHIKT ZIJN VOOR HET TRANSPORT VAN CONSUMPTIEGOEDEREN. BIJ IGROUPAGEIVERLADINGEN MOGEN GEEN GOEDEREN BIJGELADEN ZIJN/WORDEN WELKE NADELIGE GEVOLGEN KUNNEN HEBBEN OP ONZE LADING. BIJ TWIJFEL SVP DIRECT CONTACT MET ONS OPNEMEN. LET OP, GELIEVE ONS PRODUCT KOKOS (COCONUT) NIET SAMEN LADEN MET ANDERE PRODUCTEN I.V.M. GEUROVERDRACHTI AANLEVERTIJD: MA T/M VR: 09:00U 14:45U LOSREFERENTIE: ORDER L5004201",
+		  "contact": {
+			"initials": "",
+			"name": "",
+			"surname": "",
+			"surname_prefix": "",
+			"phone": [],
+			"mobile": [],
+			"email": []
+		  }
+		}
+	  ],
+	  "goods": [
+		{
+		  "id": 0,
+		  "activity_sequence_id": 0,
+		  "unit_type": ["PRODUCERPALLETS"],
+		  "stackable": false,
+		  "quantity": ["20"],
+		  "description": ["COCONUT WATER P.208433"],
+		  "loading_meters": [],
+		  "net_weight": [],
+		  "gross_weight": [],
+		  "dangerous_goods": false,
+		  "dg_class": "",
+		  "dg_product_group": "",
+		  "dg_un_code": "",
+		  "dg_technical_name": "",
+		  "size": [],
+		  "volume_cbm": []
+		}
+	  ],
+	  "reference": [
+		"https://storage.googleapis.com/img-logichiange-dsv/img_j6HwytvN453qFuh3h3U8VP"
+	  ]
+	}
+  }
+  

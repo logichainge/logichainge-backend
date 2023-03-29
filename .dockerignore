@@ -1,0 +1,12 @@
+venv/
+venv
+README.md
+CHANGELOG.md
+docker-compose.yml
+Dockerfile
+Procfile
+test
+.idea
+.pytest_cache
+.gitignore
+.gitlab-ci.yml

@@ -1,0 +1,249 @@
+{
+	"json_data": {
+	  "display_number": "robot_test_1",
+	  "tr_file_status": null,
+	  "invoice_reference": "",
+	  "file_type": "",
+	  "equipment_type": "Truck",
+	  "modality": "",
+	  "service_level": "",
+	  "customs": "",
+	  "attention_required": false,
+	  "multi_trip": true,
+	  "multi_activity": true,
+	  "date_deviation": true,
+	  "urgency": true,
+	  "late_booking": true,
+	  "cost_code": "",
+	  "client": {
+		"client_identifier": "2",
+		"name": [
+		  "test 2 robot",
+		  "other name"
+		]
+	  },
+	  "contact": {
+		"initials": "R. T. 2",
+		"name": "Robot Test",
+		"surname": "2",
+		"surname_prefix": "",
+		"phone": ["+31-010-4118913", "*31-010-4113440"],
+		"mobile": ["+31-010-4118913", "*31-010-4113440"],
+		"email": ["robot-test@2.com"]
+	  },
+	  "department": {
+		"name": "robot department"
+	  },
+	  "employee": {
+		"name": "robot 2"
+	  },
+	  "activities": [
+		{
+		  "sequence_id": 0,
+		  "activity_type": "Loading",
+		  "address": {
+			"name": "Address 0",
+			"street_1": "test",
+			"street_2": "robot",
+			"street_3": "framework",
+			"zipcode": "2741 EZ",
+			"city": "WADDINXVEEN",
+			"country": "NEDERLAND",
+			"latitude": 0,
+			"longitude": 0
+		  },
+		  "date": ["02-02-2023", "31-01-2023"],
+		  "time_prefix": "",
+		  "time_1": ["07.00", "09:00", "14:45", "16.00"],
+		  "time_2": ["16.00", "14:45", "09:00", "07.00"],
+		  "activity_reference": ["HJGKJGH476", "123-DAs"],
+		  "instructions": " LADEN 31-01-2023 LEVEREN 02-02-2023 V-ORD45016 ALLEEN SCHONE, DROGE EN REUKLOZE WAGENS GEBRUIKEN WELKE  GESCHIKT ZIJN VOOR HET TRANSPORT VAN CONSUMPTIEGOEDEREN. BIJ IGROUPAGEIVERLADINGEN MOGEN GEEN GOEDEREN BIJGELADEN ZIJN/WORDEN WELKE NADELIGE GEVOLGEN KUNNEN HEBBEN OP ONZE LADING. BIJ TWIJFEL SVP  DIRECT CONTACT MET ONS OPNEMEN. LET OP, GELIEVE ONS PRODUCT KOKOS (COCONUT) NIET SAMEN LADEN MET ANDERE PRODUCTEN I.V.M. GEUROVERDRACHTI AANLEVERTIJD: MA T/M VR: 09:00U 14:45U LOSREFERENTIE: ORDER L5004201",
+		  "contact": {
+			"initials": "R. T. 2",
+			"name": "Robot Test",
+			"surname": "2",
+			"surname_prefix": "",
+			"phone": ["+31-010-4118913", "*31-010-4113440"],
+			"mobile": ["+31-010-4118913", "*31-010-4113440"],
+			"email": ["robot-test@2.com"]
+		  }
+		},
+		{
+			"sequence_id": 1,
+			"activity_type": "Loading",
+			"address": {
+			  "name": "Address 1",
+			  "street_1": "test 1",
+			  "street_2": "robot 1",
+			  "street_3": "framework 1",
+			  "zipcode": "2741 EZ",
+			  "city": "WADDINXVEEN",
+			  "country": "NEDERLAND",
+			  "latitude": 0,
+			  "longitude": 0
+			},
+			"date": ["02-02-2023", "31-01-2023"],
+			"time_prefix": "",
+			"time_1": ["07.00", "09:00", "14:45", "16.00"],
+			"time_2": ["16.00", "14:45", "09:00", "07.00"],
+			"activity_reference": ["HJGKJGH476", "123-DAs"],
+			"instructions": " LADEN 31-01-2023 LEVEREN 02-02-2023 V-ORD45016 ALLEEN SCHONE, DROGE EN REUKLOZE WAGENS GEBRUIKEN WELKE  GESCHIKT ZIJN VOOR HET TRANSPORT VAN CONSUMPTIEGOEDEREN. BIJ IGROUPAGEIVERLADINGEN MOGEN GEEN GOEDEREN BIJGELADEN ZIJN/WORDEN WELKE NADELIGE GEVOLGEN KUNNEN HEBBEN OP ONZE LADING. BIJ TWIJFEL SVP  DIRECT CONTACT MET ONS OPNEMEN. LET OP, GELIEVE ONS PRODUCT KOKOS (COCONUT) NIET SAMEN LADEN MET ANDERE PRODUCTEN I.V.M. GEUROVERDRACHTI AANLEVERTIJD: MA T/M VR: 09:00U 14:45U LOSREFERENTIE: ORDER L5004201",
+			"contact": {
+			  "initials": "R. T. 3",
+			  "name": "Robot Test",
+			  "surname": "3",
+			  "surname_prefix": "",
+			  "phone": ["+31-010-4118913", "*31-010-4113440"],
+			  "mobile": ["+31-010-4118913", "*31-010-4113440"],
+			  "email": ["robot-test@2.com"]
+			}
+		},
+		{
+		  "sequence_id": 2,
+		  "activity_type": "Delivering",
+		  "address": {
+			"name": "OSTERLENMEJERIET AB PIA APPELKVIST",
+			"street_1": "BRANTEKVIKSVAGEN 1",
+			"street_2": "",
+			"street_3": "",
+			"zipcode": "27224",
+			"city": "SIMRISHAMN",
+			"country": "SWEDEN",
+			"latitude": 0,
+			"longitude": 0
+		  },
+		  "date": ["02-02-2023", "31-01-2023"],
+		  "time_prefix": "",
+		  "time_1": ["07.00", "09:00U", "14:45U", "16.00UUR"],
+		  "time_2": ["16.00UUR", "14:45U", "09:00U", "07.00"],
+		  "activity_reference": [
+			"L5004201",
+			"V-ORD45016",
+			"V-ORD45016",
+			"NL001841890B01"
+		  ],
+		  "instructions": " LADEN 31-01-2023 LEVEREN 02-02-2023 V-ORD45016 ALLEEN SCHONE, DROGE EN REUKLOZE WAGENS GEBRUIKEN WELKE GESCHIKT ZIJN VOOR HET TRANSPORT VAN CONSUMPTIEGOEDEREN. BIJ IGROUPAGEIVERLADINGEN MOGEN GEEN GOEDEREN BIJGELADEN ZIJN/WORDEN WELKE NADELIGE GEVOLGEN KUNNEN HEBBEN OP ONZE LADING. BIJ TWIJFEL SVP DIRECT CONTACT MET ONS OPNEMEN. LET OP, GELIEVE ONS PRODUCT KOKOS (COCONUT) NIET SAMEN LADEN MET ANDERE PRODUCTEN I.V.M. GEUROVERDRACHTI AANLEVERTIJD: MA T/M VR: 09:00U 14:45U LOSREFERENTIE: ORDER L5004201",
+		  "contact": {
+			"initials": "",
+			"name": "",
+			"surname": "",
+			"surname_prefix": "",
+			"phone": [],
+			"mobile": [],
+			"email": []
+		  }
+		},
+		{
+			"sequence_id": 3,
+			"activity_type": "Delivering",
+			"address": {
+			  "name": "OSTERLENMEJERIET AB PIA APPELKVIST",
+			  "street_1": "Street 4",
+			  "street_2": "2nd street 4",
+			  "street_3": "",
+			  "zipcode": "27224",
+			  "city": "SIMRISHAMN",
+			  "country": "SWEDEN",
+			  "latitude": 0,
+			  "longitude": 0
+			},
+			"date": ["02-02-2023", "31-01-2023"],
+			"time_prefix": "",
+			"time_1": ["07.00", "09:00U", "14:45U", "16.00UUR"],
+			"time_2": ["16.00UUR", "14:45U", "09:00U", "07.00"],
+			"activity_reference": [
+			  "L5004201",
+			  "V-ORD45016"
+			],
+			"instructions": " LADEN 31-01-2023 LEVEREN 02-02-2023 V-ORD45016 ALLEEN SCHONE, DROGE EN REUKLOZE WAGENS GEBRUIKEN WELKE GESCHIKT ZIJN VOOR HET TRANSPORT VAN CONSUMPTIEGOEDEREN. BIJ IGROUPAGEIVERLADINGEN MOGEN GEEN GOEDEREN BIJGELADEN ZIJN/WORDEN WELKE NADELIGE GEVOLGEN KUNNEN HEBBEN OP ONZE LADING. BIJ TWIJFEL SVP DIRECT CONTACT MET ONS OPNEMEN. LET OP, GELIEVE ONS PRODUCT KOKOS (COCONUT) NIET SAMEN LADEN MET ANDERE PRODUCTEN I.V.M. GEUROVERDRACHTI AANLEVERTIJD: MA T/M VR: 09:00U 14:45U LOSREFERENTIE: ORDER L5004201",
+			"contact": {
+				"initials": "R. T. 2",
+				"name": "Robot Test",
+				"surname": "2",
+				"surname_prefix": "",
+				"phone": ["+31-010-4118913", "*31-010-4113440"],
+				"mobile": ["+31-010-4118913", "*31-010-4113440"],
+				"email": ["robot-test@2.com"]
+			  }
+		}
+	  ],
+	  "goods": [
+		{
+		  "id": 0,
+		  "activity_sequence_id": 0,
+		  "unit_type": ["PRODUCERPALLETS"],
+		  "stackable": false,
+		  "quantity": ["20"],
+		  "description": ["COCONUT WATER P.208433"],
+		  "loading_meters": [],
+		  "net_weight": [],
+		  "gross_weight": [],
+		  "dangerous_goods": false,
+		  "dg_class": "",
+		  "dg_product_group": "",
+		  "dg_un_code": "",
+		  "dg_technical_name": "",
+		  "size": [],
+		  "volume_cbm": []
+		},
+		{
+			"id": 0,
+			"activity_sequence_id": 1,
+			"unit_type": ["PPL"],
+			"stackable": true,
+			"quantity": ["45"],
+			"description": ["CANS OF BEER"],
+			"loading_meters": ["25"],
+			"net_weight": ["4500"],
+			"gross_weight": ["4700"],
+			"dangerous_goods": true,
+			"dg_class": "",
+			"dg_product_group": "",
+			"dg_un_code": "",
+			"dg_technical_name": "",
+			"size": ["230 x 120 x 25"],
+			"volume_cbm": [450]
+		},
+		{
+			"id": 0,
+			"activity_sequence_id": 2,
+			"unit_type": ["PRODUCERPALLETS"],
+			"stackable": false,
+			"quantity": ["20"],
+			"description": ["COCONUT WATER P.208433"],
+			"loading_meters": [],
+			"net_weight": [],
+			"gross_weight": [],
+			"dangerous_goods": false,
+			"dg_class": "",
+			"dg_product_group": "",
+			"dg_un_code": "",
+			"dg_technical_name": "",
+			"size": [],
+			"volume_cbm": []
+		},
+		{
+			"id": 0,
+			"activity_sequence_id": 3,
+			"unit_type": ["PPL"],
+			"stackable": true,
+			"quantity": ["45"],
+			"description": ["CANS OF BEER"],
+			"loading_meters": ["25"],
+			"net_weight": ["4500"],
+			"gross_weight": ["4700"],
+			"dangerous_goods": true,
+			"dg_class": "",
+			"dg_product_group": "",
+			"dg_un_code": "",
+			"dg_technical_name": "",
+			"size": ["230 x 120 x 25"],
+			"volume_cbm": [450]
+		}
+	  ],
+	  "reference": [
+		"https://storage.googleapis.com/img-logichiange-dsv/img_j6HwytvN453qFuh3h3U8VP"
+	  ]
+	}
+  }
+  

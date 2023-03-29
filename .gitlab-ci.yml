@@ -1,0 +1,36 @@
+default:
+  image: nodejs:12.17.0
+
+stages:
+#  - build
+#  - test
+  - build_deploy_GC  
+#
+#build:
+#  image: python:3.10
+#  stage: build
+#  script:
+#    - echo "Build script initiated"
+#    - pip install -r requirements.txt
+#
+#test:
+#  image: python:3.10
+#  stage: test
+#  script:
+#    - echo "Test script initiated"
+#    - pip install -r requirements.txt
+##    - pytest
+
+
+buildAndDeployGCloud:
+  image: google/cloud-sdk:latest
+  stage: build_deploy_GC
+  when: manual
+  script:
+  - cp $GCP_SERVICE_ACCOUNT gcloud-service-key.json # Save Google cloud contents in a temporary json file
+  - cp $ENV_WITH_CLOUD_DB_VARIABLES .env_cloud # Create env file for Database connection
+  - gcloud auth activate-service-account --key-file gcloud-service-key.json # Activate your service account
+  - gcloud auth configure-docker # Configure docker environment
+  - gcloud config set project $GCP_PROJECT_ID #Set the GCP Project ID to the variable name
+  - gcloud builds submit --tag gcr.io/$GCP_PROJECT_ID/$GCP_SERVICE_NAME #Run the gcloud build command to build our image
+  - gcloud run deploy $GCP_SERVICE_NAME --image gcr.io/$GCP_PROJECT_ID/$GCP_SERVICE_NAME --region=europe-west4 --platform managed --allow-unauthenticated # Run the gcloud run deploy command to deploy our new service
