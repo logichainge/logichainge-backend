@@ -131,7 +131,7 @@ def delete_user(*, db: Session = Depends(get_db), id: int, ):
     if not db_user:
         raise not_found_by_id_exception(id)
 
-    userService.delete_user_by_id(db=db, id=id)
+    userService.delete_user_by_id(db=db, id=id) 
 
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
