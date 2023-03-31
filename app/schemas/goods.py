@@ -24,6 +24,7 @@ class GoodsBase(BaseModel):
     dg_technical_name: str
     size: List[str]
     volume_cbm: List[str]
+    measure_unit: List[str]
     
 
     class Config:

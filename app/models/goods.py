@@ -19,6 +19,7 @@ class Goods(Base):
     dg_product_group = Column(String, nullable=True)
     dg_un_code = Column(String, nullable=True)
     dg_technical_name = Column(String, nullable=True)
+    measure_unit = Column(ARRAY(String), nullable = False)
     
     size = Column(ARRAY(String), nullable=False)
     volume_cbm = Column(ARRAY(String), nullable=False)

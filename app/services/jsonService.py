@@ -205,7 +205,8 @@ def populate_with_data_from_json(
 						"dg_un_code":g["dg_un_code"],\
 						"dg_technical_name":g["dg_technical_name"],\
 						"size":g["size"],\
-						"volume_cbm":g["volume_cbm"]
+						"volume_cbm":g["volume_cbm"],\
+						"measure_unit":g["measure_unit"]
 					})
 					db_good = models.Goods(**good)
 					db.add(db_good)
