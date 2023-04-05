@@ -50,4 +50,5 @@ class TransportFileOut(TransportFileBase):
 	contact: schemas.ContactOut
 	department: schemas.DepartmentOut
 	employee: schemas.EmployeeOut
+	accuracy: float
 	created_at: datetime.datetime

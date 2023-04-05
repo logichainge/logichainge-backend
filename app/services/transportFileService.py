@@ -77,6 +77,8 @@ def update_transport_file(db: Session, transport_file_update: TransportFileBase,
     """
     Update only basic transport_file fields
     """
+    original_tr_file = db.query(models.TransportFile).filter(models.TransportFile.id == id).first()
+    print(original_tr_file)
     tr_file_query = {}
     stmt = (
         update(models.TransportFile)

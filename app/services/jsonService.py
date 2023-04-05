@@ -1,6 +1,7 @@
 from typing import List, Generic, Type, Any
 from fastapi.encoders import jsonable_encoder
 from sqlalchemy.orm import Session
+from sqlalchemy import update
 from app import models
 from app.schemas import ActivityBase, ClientBase, ContactBase, TransportFileBase, GoodsBase, AddressBase, DepartmentBase, EmployeeBase, JsonBase
 from sqlalchemy import exc
@@ -8,6 +9,16 @@ from pydantic import errors
 from app.models import Activity
 
 
+def get_fields(item):
+	fields = {'all':0, 'completed':0}
+	for key in item:
+		fields["all"] += 1
+		if not item[key] == None and not item[key] == [] and not item[key] == [""] and not item[key] == "":
+			fields["completed"]+=1
+	return fields
+
+def without_keys(d, keys):
+	return {k: d[k] for k in d.keys() - keys}
 	
 def populate_with_data_from_json(
 		db: Session,
@@ -27,12 +38,19 @@ def populate_with_data_from_json(
 	goods = []
 	good = {}
 	json = jsonable_encoder(json_data)["json_data"]
+
+	all_fields = 0
+	completed_fields = 0
 	
 	client.update({
 		"client_identifier":json["client"]["client_identifier"],\
 		"name":json["client"]["name"]
 	})
- 
+
+	fields = get_fields(json["client"])
+	all_fields += fields["all"]
+	completed_fields += fields["completed"]
+
 	db_client = models.Client(**client)
 	db.add(db_client)
 	db.commit()
@@ -48,7 +66,11 @@ def populate_with_data_from_json(
 		"mobile":json["contact"]["mobile"],\
 		"email":json["contact"]["email"]      
 	})
- 
+
+	fields = get_fields(json["contact"])
+	all_fields += fields["all"]
+	completed_fields += fields["completed"]
+
 	db_contact = models.Contact(**contact)
 	db.add(db_contact)
 	db.commit()
@@ -58,7 +80,11 @@ def populate_with_data_from_json(
 		"client_id":db_client.id,\
 		"name": json["department"]["name"]
 	})
- 
+
+	fields = get_fields(json["department"])
+	all_fields += fields["all"]
+	completed_fields += fields["completed"]
+	
 	db_department = models.Department(**department)
 	db.add(db_department)
 	db.commit()
@@ -68,7 +94,11 @@ def populate_with_data_from_json(
 		"client_id":db_client.id,\
 		"name": json["employee"]["name"]
 	})
- 
+
+	fields = get_fields(json["employee"])
+	all_fields += fields["all"]
+	completed_fields += fields["completed"]
+
 	db_employee = models.Employee(**employee)
 	db.add(db_employee)
 	db.commit()
@@ -96,7 +126,12 @@ def populate_with_data_from_json(
 		"cost_code":json["cost_code"], \
 		"reference":json["reference"]
 	})
- 
+
+	transport_file_clean = without_keys(transport_file, {"client_id", "contact_id", "department_id", "employee_id"})
+	fields = get_fields(transport_file_clean)
+	all_fields += fields["all"]
+	completed_fields += fields["completed"]
+
 	db_transport_file = models.TransportFile(**transport_file)
 	db.add(db_transport_file)
 	db.commit()
@@ -117,6 +152,10 @@ def populate_with_data_from_json(
 			"email":a["contact"]["email"]
 		})
 
+		fields = get_fields(without_keys(contact, {"client_id"}))
+		all_fields += fields["all"]
+		completed_fields += fields["completed"]
+
 		db_contact = models.Contact(**contact)
 		db.add(db_contact)
 		db.commit()
@@ -134,7 +173,11 @@ def populate_with_data_from_json(
 			"latitude":a["address"]["latitude"],\
 			"longitude":a["address"]["longitude"]
 		})
- 
+
+		fields = get_fields(address)
+		all_fields += fields["all"]
+		completed_fields += fields["completed"]
+
 		db_address = models.Address(**address)
 		db.add(db_address)
 		db.commit()
@@ -145,15 +188,19 @@ def populate_with_data_from_json(
 			"address_id":db_address.id,\
 			"contact_id":db_contact.id,\
 			"sequence_id":a["sequence_id"],\
-       		"activity_type":a["activity_type"],\
-           	"date":a["date"],\
-            "time_prefix":a["time_prefix"],\
-            "time_1":a["time_1"],\
+			"activity_type":a["activity_type"],\
+			"date":a["date"],\
+			"time_prefix":a["time_prefix"],\
+			"time_1":a["time_1"],\
 			"time_2":a["time_2"],\
 			"activity_reference":a["activity_reference"],\
 			"instructions":a["instructions"],\
 		})
 
+		activity_clean = without_keys(activity, {"transport_file_id", "contact_id", "address_id"})
+		fields = get_fields(activity_clean)
+		all_fields += fields["all"]
+		completed_fields += fields["completed"]
 		db_activity = models.Activity(**activity)
 		db.add(db_activity)
 		db.commit()
@@ -180,6 +227,9 @@ def populate_with_data_from_json(
 					"size":g["size"],\
 					"volume_cbm":g["volume_cbm"]
 				})
+				fields = get_fields(without_keys(good, {"activity_id"}))
+				all_fields += fields["all"]
+				completed_fields += fields["completed"]
 				db_good = models.Goods(**good)
 				db.add(db_good)
 				db.commit()
@@ -208,10 +258,28 @@ def populate_with_data_from_json(
 						"volume_cbm":g["volume_cbm"],\
 						"measure_unit":g["measure_unit"]
 					})
+
+					fields = get_fields(without_keys(good, {"activity_id"}))
+					all_fields += fields["all"]
+					completed_fields += fields["completed"]
 					db_good = models.Goods(**good)
 					db.add(db_good)
 					db.commit()
 					db.refresh(db_good)
-	
+
+					db_good = models.Goods(**good)
+					db.add(db_good)
+					db.commit()
+					db.refresh(db_good)
+
+	accuracy = round(completed_fields/all_fields*100, 2)
+	stmt = (
+		update(models.TransportFile)
+		.where(models.TransportFile.id == db_transport_file.id)
+		.values({'accuracy' : accuracy})
+	)
+	db.execute(stmt)
+	db.commit()
+	print("%.2f" % round(accuracy, 2))
 	return True
 

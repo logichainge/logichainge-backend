@@ -1,5 +1,5 @@
 from app.database.database import Base
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, TIMESTAMP, text, ARRAY
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, TIMESTAMP, text, ARRAY, Numeric
 from sqlalchemy.orm import relationship, backref
 
 class TransportFile(Base):
@@ -41,6 +41,7 @@ class TransportFile(Base):
     
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('now()'))
     reference = Column(ARRAY(String), nullable=True) #list of urls
+    accuracy = Column(Numeric, nullable = True)
 
 
     
