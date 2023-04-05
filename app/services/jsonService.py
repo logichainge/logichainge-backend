@@ -227,6 +227,10 @@ def populate_with_data_from_json(
 					"size":g["size"],\
 					"volume_cbm":g["volume_cbm"]
 				})
+				if g["measure_unit"] is None:
+					good.update({"measure_unit":[]})
+				else:
+					good.update({"measure_unit":g["measure_unit"]})
 				fields = get_fields(without_keys(good, {"activity_id"}))
 				all_fields += fields["all"]
 				completed_fields += fields["completed"]
@@ -249,15 +253,19 @@ def populate_with_data_from_json(
 						"loading_meters":g["loading_meters"],\
 						"net_weight":g["net_weight"],\
 						"gross_weight":g["gross_weight"],\
+						"measure_unit":g["measure_unit"],\
 						"dangerous_goods":g["dangerous_goods"],\
 						"dg_class":g["dg_class"],\
 						"dg_product_group":g["dg_product_group"],\
 						"dg_un_code":g["dg_un_code"],\
 						"dg_technical_name":g["dg_technical_name"],\
 						"size":g["size"],\
-						"volume_cbm":g["volume_cbm"],\
-						"measure_unit":g["measure_unit"]
+						"volume_cbm":g["volume_cbm"]
 					})
+					if g["measure_unit"] is None:
+						good.update({"measure_unit":[]})
+					else:
+						good.update({"measure_unit":g["measure_unit"]})
 
 					fields = get_fields(without_keys(good, {"activity_id"}))
 					all_fields += fields["all"]
