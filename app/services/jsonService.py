@@ -280,14 +280,14 @@ def populate_with_data_from_json(
 					db.commit()
 					db.refresh(db_good)
 
-	accuracy = round(completed_fields/all_fields*100, 2)
+	certainty = round(completed_fields/all_fields*100, 2)
 	stmt = (
 		update(models.TransportFile)
 		.where(models.TransportFile.id == db_transport_file.id)
-		.values({'accuracy' : accuracy})
+		.values({'certainty' : certainty})
 	)
 	db.execute(stmt)
 	db.commit()
-	print("%.2f" % round(accuracy, 2))
+	print(certainty)
 	return True
 

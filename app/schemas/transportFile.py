@@ -32,7 +32,7 @@ class TransportFileBase(BaseModel):
 	reported: Optional[bool]
 	call_before_planning: Optional[bool]
 	incoterms: Optional[str]
-	certainty: Optional[int]
+	certainty: Optional[float]
 	reference: Optional[List[str]]
 	
 	
@@ -50,5 +50,4 @@ class TransportFileOut(TransportFileBase):
 	contact: schemas.ContactOut
 	department: schemas.DepartmentOut
 	employee: schemas.EmployeeOut
-	accuracy: float
 	created_at: datetime.datetime

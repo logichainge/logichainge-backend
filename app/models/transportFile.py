@@ -37,11 +37,10 @@ class TransportFile(Base):
     reported = Column(Boolean, nullable=True, server_default="False", default=False)
     call_before_planning = Column(Boolean, nullable=True, server_default="False", default=False)
     incoterms = Column(String, nullable=True)
-    certainty = Column(Integer, nullable=True)
+    certainty = Column(Numeric, nullable=True)
     
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('now()'))
     reference = Column(ARRAY(String), nullable=True) #list of urls
-    accuracy = Column(Numeric, nullable = True)
 
 
     
