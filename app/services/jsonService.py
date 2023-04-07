@@ -67,7 +67,7 @@ def populate_with_data_from_json(
 		"email":json["contact"]["email"]      
 	})
 
-	fields = get_fields(json["contact"])
+	fields = get_fields(without_keys(contact, {"client_id", "initials", "name", "surname", "surname_prefix"}))
 	all_fields += fields["all"]
 	completed_fields += fields["completed"]
 
@@ -81,9 +81,9 @@ def populate_with_data_from_json(
 		"name": json["department"]["name"]
 	})
 
-	fields = get_fields(json["department"])
-	all_fields += fields["all"]
-	completed_fields += fields["completed"]
+	# fields = get_fields(json["department"])
+	# all_fields += fields["all"]
+	# completed_fields += fields["completed"]
 	
 	db_department = models.Department(**department)
 	db.add(db_department)
@@ -95,9 +95,9 @@ def populate_with_data_from_json(
 		"name": json["employee"]["name"]
 	})
 
-	fields = get_fields(json["employee"])
-	all_fields += fields["all"]
-	completed_fields += fields["completed"]
+	# fields = get_fields(json["employee"])
+	# all_fields += fields["all"]
+	# completed_fields += fields["completed"]
 
 	db_employee = models.Employee(**employee)
 	db.add(db_employee)
@@ -127,7 +127,21 @@ def populate_with_data_from_json(
 		"reference":json["reference"]
 	})
 
-	transport_file_clean = without_keys(transport_file, {"client_id", "contact_id", "department_id", "employee_id"})
+	transport_file_clean = without_keys(transport_file, {
+							"client_id",\
+							"contact_id",\
+							"department_id",\
+							"employee_id",\
+							"display_number",\
+							"tr_file_status",\
+							"file_type",\
+							"equipment_type",\
+							"modality",\
+							"service_level",\
+							"customs",\
+							"cost_code",\
+							"reference"
+							})
 	fields = get_fields(transport_file_clean)
 	all_fields += fields["all"]
 	completed_fields += fields["completed"]
@@ -152,7 +166,7 @@ def populate_with_data_from_json(
 			"email":a["contact"]["email"]
 		})
 
-		fields = get_fields(without_keys(contact, {"client_id"}))
+		fields = get_fields(without_keys(contact, {"client_id", "initials", "name", "surname", "surname_prefix"}))
 		all_fields += fields["all"]
 		completed_fields += fields["completed"]
 
@@ -174,7 +188,7 @@ def populate_with_data_from_json(
 			"longitude":a["address"]["longitude"]
 		})
 
-		fields = get_fields(address)
+		fields = get_fields(without_keys(address, {"name", "street_2", "street_3", "latitude", "longitude"}))
 		all_fields += fields["all"]
 		completed_fields += fields["completed"]
 
@@ -197,7 +211,7 @@ def populate_with_data_from_json(
 			"instructions":a["instructions"],\
 		})
 
-		activity_clean = without_keys(activity, {"transport_file_id", "contact_id", "address_id"})
+		activity_clean = without_keys(activity, {"transport_file_id", "contact_id", "address_id", "sequence_id", "activity_type", "time_prefix", "instructions"})
 		fields = get_fields(activity_clean)
 		all_fields += fields["all"]
 		completed_fields += fields["completed"]
@@ -231,7 +245,7 @@ def populate_with_data_from_json(
 					good.update({"measure_unit":[]})
 				else:
 					good.update({"measure_unit":g["measure_unit"]})
-				fields = get_fields(without_keys(good, {"activity_id"}))
+				fields = get_fields(without_keys(good, {"activity_id", "dangerous_goods", "dg_class", "dg_product_group", "dg_un_code", "dg_technical_name"}))
 				all_fields += fields["all"]
 				completed_fields += fields["completed"]
 				db_good = models.Goods(**good)
@@ -267,7 +281,7 @@ def populate_with_data_from_json(
 					else:
 						good.update({"measure_unit":g["measure_unit"]})
 
-					fields = get_fields(without_keys(good, {"activity_id"}))
+					fields = get_fields(without_keys(good, { "activity_id", "dangerous_goods", "dg_class", "dg_product_group", "dg_un_code", "dg_technical_name"}))
 					all_fields += fields["all"]
 					completed_fields += fields["completed"]
 					db_good = models.Goods(**good)
