@@ -41,6 +41,7 @@ class TransportFile(Base):
     
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('now()'))
     reference = Column(ARRAY(String), nullable=True) #list of urls
+    document_reference = Column(String, nullable=True)
 
 
     

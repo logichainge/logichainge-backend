@@ -124,7 +124,8 @@ def populate_with_data_from_json(
 		"urgency":json["urgency"], \
 		"late_booking":json["late_booking"], \
 		"cost_code":json["cost_code"], \
-		"reference":json["reference"]
+		"reference":json["reference"], \
+		"document_reference": json["document_reference"]
 	})
 
 	transport_file_clean = without_keys(transport_file, {

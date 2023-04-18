@@ -34,6 +34,7 @@ class TransportFileBase(BaseModel):
 	incoterms: Optional[str]
 	certainty: Optional[float]
 	reference: Optional[List[str]]
+	document_reference: Optional[str]
 	
 	
 	
