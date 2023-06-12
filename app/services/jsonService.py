@@ -78,8 +78,12 @@ def populate_with_data_from_json(
  
 	department.update({
 		"client_id":db_client.id,\
-		"name": json["department"]["name"]
 	})
+
+	if len(json["department"]["name"]) > 0:
+		department.update({"name":json["department"]["name"][0]})
+	else:
+		department.update({"name":""})
 
 	# fields = get_fields(json["department"])
 	# all_fields += fields["all"]
@@ -92,8 +96,12 @@ def populate_with_data_from_json(
  
 	employee.update({
 		"client_id":db_client.id,\
-		"name": json["employee"]["name"]
 	})
+
+	if len(json["employee"]["name"]) > 0:
+		employee.update({"name":json["employee"]["name"][0]})
+	else:
+		employee.update({"name":""})
 
 	# fields = get_fields(json["employee"])
 	# all_fields += fields["all"]
@@ -184,10 +192,26 @@ def populate_with_data_from_json(
 			"street_3":a["address"]["street_3"],\
 			"zipcode":a["address"]["zipcode"],\
 			"city":a["address"]["city"],\
-			"country":a["address"]["country"],\
-			"latitude":a["address"]["latitude"],\
-			"longitude":a["address"]["longitude"]
+			"country":a["address"]["country"]
 		})
+
+		if len(a["address"]["latitude"]) > 0:
+			address.update({
+				"latitude":a["address"]["latitude"][0],\
+			})
+		else:
+			address.update({
+				"latitude":0,\
+			})
+
+		if len(a["address"]["longitude"]) > 0:
+			address.update({
+				"longitude":a["address"]["longitude"][0],\
+			})
+		else:
+			address.update({
+				"longitude":0,\
+			})
 
 		fields = get_fields(without_keys(address, {"name", "street_2", "street_3", "latitude", "longitude"}))
 		all_fields += fields["all"]
