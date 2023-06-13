@@ -314,11 +314,6 @@ def populate_with_data_from_json(
 					db.commit()
 					db.refresh(db_good)
 
-					db_good = models.Goods(**good)
-					db.add(db_good)
-					db.commit()
-					db.refresh(db_good)
-
 	certainty = round(completed_fields/all_fields*100, 2)
 	stmt = (
 		update(models.TransportFile)
